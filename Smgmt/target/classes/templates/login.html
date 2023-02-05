@@ -1,0 +1,40 @@
+
+<html lang="en">
+
+<head>
+	
+	<title>Login Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- Reference Bootstrap files -->
+	<link rel="stylesheet"
+		 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+</head>
+
+<body>
+	<form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto;">
+		<div class="border border-secondary p-3 rounded">
+			<h1>Login</h1>
+			<div class="form-group">
+				<label for="username">Username:</label> 
+				<input type="text" class="form-control" placeholder="Enter username" id="username" name="username">
+			</div>
+			<div class="form-group">
+				<label for="pwd">Password:</label> 
+				<input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
+			</div>
+			<div class="form-group form-check">
+				<label class="form-check-label"> 
+				<inputclass="form-check-input" type="checkbox"> Remember me	</inputclass="form-check-input"></label>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</form>
+
+</body></html>

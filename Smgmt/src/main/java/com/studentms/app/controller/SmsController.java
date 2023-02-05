@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
-
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.studentms.app.entity.SmsEntity;
-
 import com.studentms.app.service.SmsServiceImpl;
 
 @Controller
@@ -30,8 +32,7 @@ public class SmsController {
 		m.addAttribute("student", student);
 		m.addAttribute("keyword", keyword);
 		return "index";
-	}
-
+	} 
 	@GetMapping("/addstudent")
 	public String addStudentForm() {
 		return "add";
@@ -80,4 +81,13 @@ public class SmsController {
 		return "redirect:/";
 	}
 
+	@GetMapping("/login")
+	public String showLoginPage() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if(authentication==null || authentication instanceof AnonymousAuthenticationToken) {
+			return "/login";
+		}
+		return "redirect:/";
+	}
+	
 }

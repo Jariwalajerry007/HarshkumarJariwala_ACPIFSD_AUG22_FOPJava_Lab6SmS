@@ -10,8 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
-@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -46,12 +44,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/editdetails/{id}","/deletedetails/{id}").hasAuthority("ADMIN")
         .anyRequest().authenticated()
         .and()
-        .formLogin().permitAll()
-        .loginPage("/login").successForwardUrl("/").permitAll()
+        .formLogin()
+        .loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
         .and()
         .logout().logoutSuccessUrl("/login").permitAll()
         .and()
-        .exceptionHandling().accessDeniedPage("/books/403")
+        .exceptionHandling().accessDeniedPage("/403")
         .and()
         .cors().and().csrf().disable();
 	}
