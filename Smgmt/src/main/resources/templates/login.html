@@ -1,5 +1,5 @@
 
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
 
 <head>
 	
@@ -22,16 +22,15 @@
 		<div class="border border-secondary p-3 rounded">
 			<h1>Login</h1>
 			<div class="form-group">
-				<label for="username">Username:</label> 
-				<input type="text" class="form-control" placeholder="Enter username" id="username" name="username">
+				<label for="username">User name:</label> 
+				<input type="text" class="form-control" placeholder="Enter username" id="username" name="username" required autofocus />
 			</div>
 			<div class="form-group">
 				<label for="pwd">Password:</label> 
-				<input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
+				<input type="password" class="form-control" placeholder="Enter password" id="password" name="password" required>
 			</div>
 			<div class="form-group form-check">
-				<label class="form-check-label"> 
-				<inputclass="form-check-input" type="checkbox"> Remember me	</inputclass="form-check-input"></label>
+				
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>

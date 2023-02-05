@@ -85,7 +85,7 @@ public class SmsController {
 	public String showLoginPage() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if(authentication==null || authentication instanceof AnonymousAuthenticationToken) {
-			return "/login";
+			return "login";
 		}
 		return "redirect:/";
 	}
